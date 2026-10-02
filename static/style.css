@@ -1,0 +1,66 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('3b18780afece5fd66fb8e78e2d207999.jpg'); 
+    background-size: cover;              
+    background-position: center;         
+    background-repeat: no-repeat;       
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: #ec4848;
+}
+
+.subtitle {
+    text-align: center;
+    color: #484747;
+}
+
+.topics {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.topics label {
+    background-color: #bba2ea;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.main-btn {
+    width: 100%;
+    margin-top: 25px;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background-color: #ff2020cd;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.question-box,
+.feedback-box {
+    margin-top: 25px;
+    padding: 20px;
+    background-color: #d3bcff;
+    border-radius: 10px;
+}
+
+.question-box h2,
+.feedback-box h2 {
+    color: #ffffff;
+}
+
+.container {
+    width: 650px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(254, 211, 254, 0.904);
+}

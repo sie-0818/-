@@ -1,12 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=
-    , initial-scale=1.0">
-    <title>Ai 程式練習助手</title>
+    <title>AI 程式練習助手</title>
+    <link rel="stylesheet" href="static/style.css">
 </head>
 <body>
-    
+    <div class="container">
+        <h1>AI 程式練習助手</h1>
+        <p class="subtitle">
+            選擇一個 Python 學習主題
+        </p>
+        <h3>請選擇學習主題：</h3>
+        <div class="topics">
+            <label>
+                <input type="radio" name="topic">
+                輸入輸出
+            </label>
+            <label>
+                <input type="radio" name="topic">
+                條件判斷
+            </label>
+            <label>
+                <input type="radio" name="topic">
+                迴圈
+            </label>
+            <label>
+                <input type="radio" name="topic">
+                串列
+            </label>
+        </div>
+        <button class="main-btn">
+            幫我出題
+        </button>
+        <div class="question-box">
+            <h2>AI 題目</h2>
+            <p>
+                這裡之後會顯示 AI 產生的題目。
+            </p>
+        </div>
+        <div class="feedback-box">
+            <h2>AI 學習回饋</h2>
+            <p>
+                這裡之後會顯示作答結果與 AI 解釋。
+            </p>
+        </div>
+    </div>
 </body>
 </html>
