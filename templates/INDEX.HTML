@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>AI 程式練習助手</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>AI 程式練習助手</h1>
+        <p class="subtitle">
+            選擇一個 Python 學習主題
+        </p>
+        <h3>請選擇學習主題：</h3>
+        <form method="POST">
+    <div class="topics">
+        <label>
+            <input type="radio" name="topic" value="輸入輸出">
+            輸入輸出
+        </label>
+        <label>
+            <input type="radio" name="topic" value="條件判斷">
+            條件判斷
+        </label>
+        <label>
+            <input type="radio" name="topic" value="迴圈">
+            迴圈
+        </label>
+        <label>
+            <input type="radio" name="topic" value="串列">
+            串列
+        </label>
+    </div>
+    <button class="main-btn" type="submit" name="action" value="generate">
+        幫我出題
+    </button>
+</form>
+<p>目前選擇的主題：{{ topic }}</p>
+        <div class="question-box">
+            <h2>AI 題目</h2>
+            <p>
+                {{ question_text }}
+            </p>
+        </div>
+        <div class="feedback-box">
+            <h2>AI 學習回饋</h2>
+            <p>
+                這裡之後會顯示作答結果與 AI 解釋。
+            </p>
+            {% if feedback %}
+<div class="feedback">
+    <h3>AI 回饋：</h3>
+    <p>{{ feedback }}</p>
+</div>
+{% endif %}
+            {% if topic == "輸入輸出" %}
+<form method="POST">
+
+<input type="hidden" name="topic" value="{{ topic }}">
+<label>
+    <input type="radio" name="student_answer" value="A">
+    A. input()
+</label>
+<label>
+    <input type="radio" name="student_answer" value="B">
+    B. print()
+</label>
+<label>
+    <input type="radio" name="student_answer" value="C">
+    C. len()
+</label>
+<label>
+    <input type="radio" name="student_answer" value="D">
+    D. range()
+</label>
+<button type="submit" class="min-btn" name="action" value="check">提交答案</button>
+</form>
+{% endif %}
+        </div>
+    </div>
+</body>
+</html>
