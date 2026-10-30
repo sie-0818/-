@@ -13,69 +13,71 @@
         </p>
         <h3>請選擇學習主題：</h3>
         <form method="POST">
-    <div class="topics">
-        <label>
-            <input type="radio" name="topic" value="輸入輸出">
-            輸入輸出
-        </label>
-        <label>
-            <input type="radio" name="topic" value="條件判斷">
-            條件判斷
-        </label>
-        <label>
-            <input type="radio" name="topic" value="迴圈">
-            迴圈
-        </label>
-        <label>
-            <input type="radio" name="topic" value="串列">
-            串列
-        </label>
-    </div>
-    <button class="main-btn" type="submit" name="action" value="generate">
-        幫我出題
-    </button>
-</form>
-<p>目前選擇的主題：{{ topic }}</p>
+            <div class="topics">
+                <label>
+                    <input type="radio" name="topic" value="輸入輸出">
+                    輸入輸出
+                </label>
+                <label>
+                    <input type="radio" name="topic" value="條件判斷">
+                    條件判斷
+                </label>
+                <label>
+                    <input type="radio" name="topic" value="迴圈">
+                    迴圈
+                </label>
+                <label>
+                    <input type="radio" name="topic" value="串列">
+                    串列
+                </label>
+            </div>
+            <button class="main-btn" type="submit" name="action" value="generate">
+                幫我出題
+            </button>
+        </form>
+        
+        <p>目前選擇的主題：{{ topic }}</p>
+
+        <!-- AI 題目與動態選項區塊 -->
         <div class="question-box">
             <h2>AI 題目</h2>
-            <p>
-                {{ question_text }}
-            </p>
+            <p>{{ question_text }}</p>
+            
+            {% if question_data %}
+            <form method="POST">
+                <input type="hidden" name="topic" value="{{ topic }}">
+                <label>
+                    <input type="radio" name="student_answer" value="A">
+                    A. {{ question_data["A"] }}
+                </label>
+                <label>
+                    <input type="radio" name="student_answer" value="B">
+                    B. {{ question_data["B"] }}
+                </label>
+                <label>
+                    <input type="radio" name="student_answer" value="C">
+                    C. {{ question_data["C"] }}
+                </label>
+                <label>
+                    <input type="radio" name="student_answer" value="D">
+                    D. {{ question_data["D"] }}
+                </label>
+                <button type="submit" class="min-btn" name="action" value="check">提交答案</button>
+            </form>
+            {% endif %}
         </div>
+
+        <!-- AI 學習回饋區塊 -->
         <div class="feedback-box">
             <h2>AI 學習回饋</h2>
-            <p>
-                這裡之後會顯示作答結果與 AI 解釋。
-            </p>
             {% if feedback %}
-<div class="feedback">
-    <h3>AI 回饋：</h3>
-    <p>{{ feedback }}</p>
-</div>
-{% endif %}
-            {% if topic == "輸入輸出" %}
-<form method="POST">
-
-<input type="hidden" name="topic" value="{{ topic }}">
-<label>
-    <input type="radio" name="student_answer" value="A">
-    A. input()
-</label>
-<label>
-    <input type="radio" name="student_answer" value="B">
-    B. print()
-</label>
-<label>
-    <input type="radio" name="student_answer" value="C">
-    C. len()
-</label>
-<label>
-    <input type="radio" name="student_answer" value="D">
-    D. range()
-</label>
-<button type="submit" class="min-btn" name="action" value="check">提交答案</button>
-</form>
-{% endif %}
+            <div class="feedback">
+                <h3>AI 回饋：</h3>
+                <p>{{ feedback }}</p>
+            </div>
+            {% else %}
+            <p>這裡之後會顯示作答結果與 AI 解釋。</p>
+            {% endif %}
         </div>
     </div>
 </body>
